@@ -17,14 +17,33 @@ function greaterThanTen(numbers) {
 // Ex.:
 //   bWords(['banana', 'orange', 'apple', 'Bonobo', 'kiwi', 'pear']);
 //   => ['banana', 'Bonobo]
-function bWords(words) {}
+function bWords(words) {
+  let beeWords = []
+
+  for (const bee of words) {
+
+    if (bee[0] === "b") {
+      beeWords.push(words)
+    }
+    
+  }
+
+    return beeWords
+
+}
 
 // Add all the elements from additionalItems to the end of originalArray.
 // Return the originalArray..
 // Ex.:
 //  extend([1, 2, 3], [4, 5, 6]);
 //  => [1, 2, 3, 4, 5, 6]
-function extend(originalArray, additionalItems) {}
+function extend(originalArray, additionalItems) {
+  
+  originalArray.push(additionalItems);
+
+  return originalArray;
+
+}
 
 // Return an array of all items with the given length.
 // Ex.:
@@ -44,7 +63,10 @@ function everyOtherItem(items) {}
 // Ex.:
 //   findWordsStartingWith(['apple', 'banana', 'kiwi', 'pear', 'bacon'], 'b');
 //   => [1, 4]
-function findWordsStartingWith(words, letter) {}
+function findWordsStartingWith(words, letter) {
+  
+
+}
 
 // Return the `n` smallest values in the array in descending order (largest
 // numbers first). Assume that `n` will always be less than the length of the

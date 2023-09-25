@@ -34,8 +34,6 @@ function approximatelyEqual(x, y) {
 //   => 'John Doe'
 function fullName(firstName, lastName) {
   
-
-
 }
 
 // Generate the sentence "PERSON was drinking BEVERAGE at LOCATION" using the
@@ -43,7 +41,13 @@ function fullName(firstName, lastName) {
 // Ex.:
 //   generateSentence('Kay', 'coffee', 'the local cafe');
 //   => 'Kay was drinking coffee at the local cafe.'
-function generateSentence(person, beverage, location) {}
+function generateSentence(person, beverage, location) {
+  if (generateSentence){
+
+    return `${person} was drinking ${beverage} at ${location}`;
+  }
+
+}
 
 // Return the given string with all vowels replced with '*' characters.
 // Ex.:
