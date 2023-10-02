@@ -18,18 +18,15 @@ function greaterThanTen(numbers) {
 //   bWords(['banana', 'orange', 'apple', 'Bonobo', 'kiwi', 'pear']);
 //   => ['banana', 'Bonobo]
 function bWords(words) {
-  let beeWords = []
+  const beeWords = []
 
-  for (const bee of words) {
-
-    if (bee[0] === "b") {
-      beeWords.push(words)
-    }
-    
+  for (let i = 0; i < words.length; i++) {
+    const buzz = words[i];
+    if (buzz[0].toLowerCase() === "b") {
+      beeWords.push(buzz);
+    } 
   }
-
     return beeWords
-
 }
 
 // Add all the elements from additionalItems to the end of originalArray.
@@ -38,24 +35,37 @@ function bWords(words) {
 //  extend([1, 2, 3], [4, 5, 6]);
 //  => [1, 2, 3, 4, 5, 6]
 function extend(originalArray, additionalItems) {
-  
-  originalArray.push(additionalItems);
-
+    for (let i = 0; i < additionalItems.length; i++){
+      originalArray.push(additionalItems[i]);
+    }
   return originalArray;
-
 }
 
 // Return an array of all items with the given length.
 // Ex.:
 //   itemsWithLength(['a', 'bbb', 'cccc', 'dddddd', 'eee'], 3);
 //   => ['bbb', 'eee']
-function itemsWithLength(items, length) {}
+function itemsWithLength(items, length) {
+    const arr = []
+    for (let i = 0; i < items.length; i++){
+      if (items[i].length === length){
+        arr.push(items[i]);
+      }
+    }
+    return arr;
+}
 
 // Return an array with every other element from the input array (start with index 0).
 // Ex.:
 //   everyOtherItem(['a', 'b', 'c', 'd', 'e']);
 //   => ['a', 'c', 'e']
-function everyOtherItem(items) {}
+function everyOtherItem(items) {
+  const everyItem = []
+  for (let i = 0; i < items.length; i += 2){
+    everyItem.push(items[i])
+  }
+  return everyItem;
+}
 
 // Given a list of words and a letter, return the indexes of the words that
 // start with that letter. You can assume that the words and letter will always
@@ -64,8 +74,14 @@ function everyOtherItem(items) {}
 //   findWordsStartingWith(['apple', 'banana', 'kiwi', 'pear', 'bacon'], 'b');
 //   => [1, 4]
 function findWordsStartingWith(words, letter) {
-  
-
+  const list = []
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    if (word[0] === letter) {
+      list.push(i);
+    }
+  }
+    return list;
 }
 
 // Return the `n` smallest values in the array in descending order (largest
@@ -74,7 +90,29 @@ function findWordsStartingWith(words, letter) {
 // Ex.:
 //   smallestNItems([1, 30, 4, 21, 100000], 3);
 //   => [21, 4, 1]
-function smallestNItems(items, n) {}
+function smallestNItems(items, n) {
+  if (n >= items.length) {
+    return items; 
+  }
+
+  const sortedArray = items.slice();
+
+  sortedArray.sort(function(a, b) {
+    return a - b;
+  });
+
+  const answer = [];
+
+  for (let i = 0; i < n; i++) {
+    answer.push(sortedArray[i]);
+  }
+  
+  answer.reverse();
+
+  return answer;
+
+}
+
 
 // Search for a value in the array and return its index. If the value appears
 // more than once, return the index of the *FIRST* occurrence of the value. If
@@ -82,14 +120,32 @@ function smallestNItems(items, n) {}
 // Ex.:
 //   findIndex(['a', 'b', 'c', 'a', 'b', 'c'], 'c');
 //   => 2
-function findIndex(items, value) {}
+function findIndex(items, value) {
+  for (let i = 0; i < items.length; i++) {
+    if (items[i] === value) {
+      return i; 
+    }
+  } 
+  return undefined; 
+  
+}
+
 
 // Given a start number and stop number, return a new array containing all the numbers
 // between the start and stop number.
 // Ex.:
 //   range(1, 5);
 //   => [1, 2, 3, 4, 5]
-function range(start, stop) {}
+function range(start, stop) {
+  const answer = [];
+  
+  for (let i = start; i <= stop; i++) {
+    answer.push(i);
+  }
+  
+  return answer;
+}
+
 
 export {
   bWords,

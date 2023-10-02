@@ -33,7 +33,7 @@ function approximatelyEqual(x, y) {
 //   fullName('John', 'Doe');
 //   => 'John Doe'
 function fullName(firstName, lastName) {
-  
+  return `${firstName} ${lastName}`;
 }
 
 // Generate the sentence "PERSON was drinking BEVERAGE at LOCATION" using the
@@ -42,24 +42,54 @@ function fullName(firstName, lastName) {
 //   generateSentence('Kay', 'coffee', 'the local cafe');
 //   => 'Kay was drinking coffee at the local cafe.'
 function generateSentence(person, beverage, location) {
-  if (generateSentence){
-
-    return `${person} was drinking ${beverage} at ${location}`;
-  }
-
+  const sentence = `${person} was drinking ${beverage} at ${location}.`;
+  return sentence;
 }
 
 // Return the given string with all vowels replced with '*' characters.
 // Ex.:
 //   censorVowels('javascript');
 //   => 'j*v*scr*pt'
-function censorVowels(string) {}
+function censorVowels(string) {
+  const vowels = 'aeiouAEIOU';
+
+  let answer = '';
+
+  for (let i = 0; i < string.length; i++) {
+    const currentCharacter = string[i];
+    
+    if (vowels.includes(currentCharacter)) {
+      answer += '*'; 
+    } else {
+      answer += currentCharacter; 
+    }
+  }
+
+  return answer;
+}
 
 // Return the given string in sticky case.
 // Ex.:
 //   stickyCase('hello world');
 //   => 'hElLo wOrLd'
-function stickyCase(string) {}
+function stickyCase(string) {
+  let answer = '';
+  let toUpperCase = true;
+
+  for (let i = 0; i < string.length; i++) {
+    const currentCharacter = string[i];
+
+    if (toUpperCase) {
+      answer += currentCharacter.toUpperCase();
+    } else {
+      answer += currentCharacter.toLowerCase();
+    }
+
+    toUpperCase = !toUpperCase;
+  }
+
+  return answer;
+}
 
 // Return the given string in leetspeak. Leetspeak is a modified version of
 // English where characters are replaced by numbers or symbols. For this
@@ -73,7 +103,26 @@ function stickyCase(string) {}
 // Ex.:
 //   leetspeak('javascript');
 //   => 'j4v45cr1p7'
-function leetspeak(string) {}
+function leetspeak(string) {
+  const map = {
+    'a': '4',
+    'e': '3',
+    'i': '1',
+    'o': '0',
+    's': '5',
+    't': '7'
+  };
+
+  let answer = '';
+
+  for (let i = 0; i < string.length; i++) {
+    const currentCharacter = string[i];
+    const leetCharacter = map[currentCharacter.toLowerCase()] || currentCharacter; 
+    answer += leetCharacter;
+  }
+
+  return answer;
+}
 
 export {
   approximatelyEqual,
